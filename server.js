@@ -20,10 +20,11 @@ app.get("/", function (req, res) {
 
 
 // your first API endpoint... 
-app.get("/api/timestamp", function (req, res) {
-  res.json({greeting: 'hello API'});
+app.get("/api/timestamp/", function (req, res) {
+  res.json({unix: Date.now(), utc: Date()});
 });
 
+app.get("/api/timestamp/:date_")
 
 
 // listen for requests :)
