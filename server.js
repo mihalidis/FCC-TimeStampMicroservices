@@ -1,3 +1,5 @@
+//deneme linkleri  /api/timestamp/2015-12-25
+//                 /api/timestamp/1451001600000
 // server.js
 // where your node app starts
 
@@ -24,7 +26,11 @@ app.get("/api/timestamp/", function (req, res) {
   res.json({unix: Date.now(), utc: Date()});
 });
 
-app.get("/api/timestamp/:date_")
+app.get("/api/timestamp/:date_stamp", function(req,res){
+  let date_stamp = req.params.date_stamp;
+  if()
+  res.json({deneme: date_stamp});
+});
 
 
 // listen for requests :)
