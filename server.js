@@ -29,13 +29,17 @@ app.get("/api/timestamp/", function (req, res) {
 app.get("/api/timestamp/:date_stamp", function(req,res){
   // Unix Formatında verilirse
   const dateStamp= req.params.date_stamp;
-  if(/\d{5,}/.test(dateStamp)){
+  if(dateStamp.toString().length >= 5){
     const dateNum = parseInt(dateStamp);
     res.json({unix: dateStamp, utc: new Date(dateNum).toUTCString()});
   }
   // geçerli date formatında gelirse
   const dateObj = new Date(dateStamp);
-  
+  if(dateObj.toString() === "Invalid Date"){
+    res.json({error: "Invalid Date"});
+  }else{
+    res.json({unix: dateObj.valueOf(), utc: dateObj.toUTCString()})
+  }
 });
 
 
